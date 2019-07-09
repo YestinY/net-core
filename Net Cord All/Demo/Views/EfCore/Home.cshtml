@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+@model Demo.Models.UserEntity;
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>yjy</title>
+	</head>
+    <body>
+        <table class="layui-hide" id="test">
+            <tr>
+                <th>
+                    编号
+                </th>
+                <th>
+                    姓名
+                </th>
+                <th>
+                    年龄
+                </th>
+                <th>
+                    爱好
+                </th>
+            </tr>
+                @{List<Demo.Models.UserEntity> List=ViewBag.List;}
+
+                @{foreach (var item in List)
+                {
+                    <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Hobby</td>
+                    </tr>
+                }
+                }
+        </table>
+
+        <form action="/EFCore/Add" method="post">
+            <input  type="text" name="Name" value="袁佳有">
+            <input  type="text" value="19" name="Age">
+            <input type="text" name="Hobby" value="instagram">
+            <input type="submit" value="save">
+        </form>
+        </body>
+</html>
